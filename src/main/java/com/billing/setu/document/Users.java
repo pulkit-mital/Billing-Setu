@@ -3,50 +3,52 @@ package com.billing.setu.document;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 public class Users {
     @Id
-    private int id;
-    private String name;
-    private String teamName;
-    private long Salary;
+    private String id;
+    private String customerName;
+    private String mobileNumber;
+    private List<String> refIds;
 
-    public Users(int id, String name, String teamName, long Salary) {
+    public Users(String id, String customerName, String mobileNumber, List<String> refIds) {
         this.id = id;
-        this.name = name;
-        this.teamName = teamName;
-        this.Salary = Salary;
+        this.customerName = customerName;
+        this.mobileNumber = mobileNumber;
+        this.refIds = refIds;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public String getTeamName() {
-        return teamName;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
-    public long getSalary() {
-        return Salary;
+    public List<String> getRefIds() {
+        return refIds;
     }
 
-    public void setSalary(long Salary) {
-        this.Salary = Salary;
+    public void setRefIds(List<String> refIds) {
+        this.refIds = refIds;
     }
 }
