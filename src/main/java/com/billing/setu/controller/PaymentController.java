@@ -48,6 +48,14 @@ public class PaymentController {
     @PostMapping("payment-update")
     public Object updatePayment(@RequestBody PaymentUpdateRequest paymentUpdateRequest){
         PaymentDetails paymentDetails = paymentDetailRepository.findPaymentByRefId(paymentUpdateRequest.getRefID());
+        if(paymentDetails.isPaymentDone()){
+            //TODO send the response as it is
+        }else if (paymentUpdateRequest.getTransaction().getId().equalsIgnoreCase(paymentDetails.getId())){
+            //TODO send the response as it is
+
+        }else {
+
+        }
         paymentDetails.setAckId("1");
         paymentDetails.setPaymentDone(true);
         paymentDetails.setId(paymentDetails.getId());
